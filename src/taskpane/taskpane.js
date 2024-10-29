@@ -1,12 +1,14 @@
 /* global document, Office */
 import config from "../config";
 
-let insertAt = document.getElementById("text-item");
-let dmsButton = document.getElementById("dms-button");
-let loaderIcon = document.getElementById("loader-area");
+let insertAt, dmsButton, loaderIcon;
 
 Office.onReady((info) => {
   if (info.host === Office.HostType.Outlook) {
+    insertAt = document.getElementById("text-item");
+    dmsButton = document.getElementById("dms-button");
+    loaderIcon = document.getElementById("loader-area");
+
     syncWithDMS();
     document.getElementById("app-body").style.display = "flex";
   }
